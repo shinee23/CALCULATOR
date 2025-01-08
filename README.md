@@ -1,0 +1,1 @@
+This is a calculator done using HTML, JavaScript and Bootstrap4. When the link(calculator) in the navigation bar is clicked, a calculator will pop out, on which various arithmetic operations can be performed.

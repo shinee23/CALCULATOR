@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    #wrapper{
+        border: 3px solid black;
+        height:217px;
+        width:fit-content;
+        padding:7px;
+        margin:auto;
+        background-color: black;
+    }
+    #inp{
+        width:350px;
+        height:50px;
+        display:block;
+        border:3px solid black;
+    }
+    .btn-group{
+        margin-top:7px;
+        position:relative;
+    }
+    .btn-group-vertical{
+        width:68px;
+        height: 135px;
+    }
+    #last{
+        position:absolute;
+        left:276px;
+        top:-5px;
+        height:145px;
+    }
+    .btn{
+        border: 1px solid rgb(163, 173, 218);
+    }
+    #output{
+        margin:auto;
+        margin-top: 150px;
+    }
+    body{
+        background-image: linear-gradient(to right,skyblue,darkgrey);
+    }
+</style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="displayCalculator()">Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">noFunction</a>
+          </li>
+        </ul>
+      
+      </nav>
+      <div id="output"></div>
+
+    <!-- <button onclick="displayCalculator()" style="width:100px;">calculator</button> 
+    <div id="output"></div> -->
+
+    <script type="text/javascript">
+
+        function displayCalculator(){
+           document.getElementById("output").innerHTML=`<div id="wrapper">
+  <input type="text" id="inp">
+  <div class="btn-group btn-group-lg">
+   <div class="btn-group-vertical">
+    <button type="button" class="btn btn-primary" onclick="send(1)">1</button>
+    <button type="button" class="btn btn-primary" onclick="send(4)">4</button>
+    <button type="button" class="btn btn-primary" onclick="send(7)">7</button>
+    <button type="button" class="btn btn-secondary" onclick="send('%')">%</button>
+    </div>
+    <div class="btn-group-vertical">
+    <button type="button" class="btn btn-primary" onclick="send(2)">2</button>
+    <button type="button" class="btn btn-primary" onclick="send(5)">5</button>
+    <button type="button" class="btn btn-primary" onclick="send(8)">8</button>
+    <button type="button" class="btn btn-primary" onclick="send(0)">0</button>
+    </div>
+    <div class="btn-group-vertical">
+    <button type="button" class="btn btn-primary" onclick="send(3)">3</button>
+    <button type="button" class="btn btn-primary" onclick="send(6)">6</button>
+    <button type="button" class="btn btn-primary" onclick="send(9)">9</button>
+    <button type="button" class="btn btn-secondary" onclick="send('/')">/</button>
+    </div>
+    <div class="btn-group-vertical">
+    <button type="button" class="btn btn-secondary" onclick="send('+')">+</button>
+    <button type="button" class="btn btn-secondary" onclick="send('-')">-</button>
+    <button type="button" class="btn btn-secondary" onclick="send('*')">*</button>
+    <button type="button" class="btn btn-success" onclick="getResult()">=</button>
+    </div>
+    <button type="button" class="btn btn-danger" id="last" onclick="clearInput()">clear</button>
+    </div>
+    </div>
+    </div>`
+        }
+       function send(x){
+        document.getElementById("inp").value += x;
+       }
+
+       function getResult(){
+        document.getElementById("inp").value = eval(document.getElementById("inp").value);
+       }
+        /*function should'nt be named clear(). it has other
+        meaning in js*/
+       function clearInput(){
+        document.getElementById("inp").value = "";
+       }
+
+    </script>
+
+    
+</body>
+</html>
